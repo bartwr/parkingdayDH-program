@@ -1,0 +1,91 @@
+<link rel="import" href="https://polygit.org/components/polymer/polymer-element.html">
+<link rel="import" href="https://polygit.org/components/polymer/lib/mixins/gesture-event-listeners.html">
+
+<dom-module id="pd-program-item">
+
+  <template>
+
+    <!-- scoped CSS for this element -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .pd-program-item {
+        padding: 5px 0;
+        transition: background 0.5s;
+        cursor: pointer;
+      }
+      .pd-program-item:hover {
+        background: #eee;
+      }
+      .pd-program-item header {
+        display: flex;
+        justify-content: space-between;
+      }
+      .pd-program-item header > div {
+        margin: 0 5px;
+      }
+      .pd-program-item-nr {
+        border: solid #000 2px;
+        border-radius: 15px;
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .pd-program-item-title {
+        flex: 1;
+        line-height: 20px;
+      }
+      :host .pd-program-item-details {
+        display: none;
+      }
+      :host([pressed]) .pd-program-item-details {
+        display: block;
+      }
+
+    </style>
+
+    <div class="pd-program-item">
+      <header>
+        <div class="pd-program-item-nr">{{item.nr}}</div>
+        <div class="pd-program-item-title">{{item.title}}</div>
+      </header>
+      <div class="pd-program-item-details">
+        Details
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+    class PdProgramItem extends Polymer.GestureEventListeners(Polymer.Element) {
+      static get is() { return "pd-program-item"; }
+
+      static get properties() {
+        return {
+          list: Object,
+          pressed: {
+            type: Boolean,
+            notify: true,
+            reflectToAttribute: true,
+            value: false
+          }
+        }
+      }
+      constructor() {
+        super();
+
+        this.addEventListener('tap', 'toggle');
+        Polymer.Gestures.addListener(this, 'tap', () => this.toggle());
+      }
+      toggle() {
+        this.pressed = ! this.pressed;
+      }
+    }
+    customElements.define(PdProgramItem.is, PdProgramItem);
+  </script>
+
+</dom-module>

@@ -1,0 +1,128 @@
+<!-- import polymer-element -->
+<link rel="import"  href="https://polygit.org/components/polymer/polymer-element.html">
+<!-- import template repeater --> 
+<link rel="import"  href="https://polygit.org/components/polymer/lib/elements/dom-repeat.html">
+
+<link rel="import" href="pd-program-item.html">
+
+<dom-module id="pd-program">
+
+  <template>
+
+    <!-- scoped CSS for this element -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .pd-program {
+        max-width: 480px;
+        margin: 0 auto;
+      }
+      nav {
+        text-align: left;
+      }
+      nav a {
+        display: inline-block
+      }
+      .pd-street-wrapper img {
+        max-width: 100%
+      }
+    </style>
+
+    <div class="pd-program">
+      <nav>
+        <a href="#" on-click="clickNav" data-nr="1">Straat 1</a>
+        <a href="#" on-click="clickNav" data-nr="2">Straat 2</a>
+        <a href="#" on-click="clickNav" data-nr="3">Straat 3</a>
+      </nav>
+
+      <div class="pd-street-wrapper" id="street1">
+
+        <img src="http://parkingdaydenhaag.nl/wp-content/uploads/2017/05/Route1.png" alt="Straat 1" />
+
+        <template is="dom-repeat" items="{{street1}}">
+          <pd-program-item item={{item}} />
+        </template>
+
+      </div>
+
+      <div class="pd-street-wrapper" id="street2">
+
+        <img src="http://parkingdaydenhaag.nl/wp-content/uploads/2017/05/Route1.png" alt="Straat 1" />
+
+        <template is="dom-repeat" items="{{street2}}">
+          <pd-program-item item={{item}} />
+        </template>
+
+      </div>
+
+      <div class="pd-street-wrapper" id="street3">
+
+        <img src="http://parkingdaydenhaag.nl/wp-content/uploads/2017/05/Route1.png" alt="Straat 1" />
+
+        <template is="dom-repeat" items="{{street3}}">
+          <pd-program-item item={{item}} />
+        </template>
+
+      </div>
+
+    </div>
+
+  </template>
+
+  <script>
+    class PdProgram extends Polymer.Element {
+      static get is() { return "pd-program"; }
+
+      constructor() {
+        super();
+        this.street1 = [
+          {
+            nr: '1',
+            title: 'Solar Skelter',
+            details: 'Le details',
+            image: 'Le details',
+            url: 'Le details'
+          }
+        ];
+        this.street2 = [
+          {
+            nr: '1',
+            title: 'Solar Skelter',
+            details: 'Le details',
+            image: 'Le details',
+            url: 'Le details'
+          }
+        ];
+        this.street3 = [
+          {
+            nr: '1',
+            title: 'Solar Skelter',
+            details: 'Le details',
+            image: 'Le details',
+            url: 'Le details'
+          }
+        ];
+      }
+
+      clickNav(e, detail, sender) {
+        var nr = $(e.target).data('nr'), elementToScrollTo;
+
+        if(nr == "1")
+          elementToScrollTo = $(this.$.street1);
+        else if(nr == "2")
+          elementToScrollTo = $(this.$.street2);
+        else if(nr == "3")
+          elementToScrollTo = $(this.$.street3);
+
+        $('html, body').animate({ 
+          scrollTop: elementToScrollTo.offset().top
+        }, 250);
+      }
+
+    }
+    customElements.define(PdProgram.is, PdProgram);
+  </script>
+
+</dom-module>
+
