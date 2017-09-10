@@ -19,21 +19,22 @@
         margin: 0 auto;
       }
       nav {
-        text-align: left;
+        font-size: 20px;
+        text-align: center;
       }
       nav a {
-        display: inline-block
+        display: inline-block;
       }
       .pd-street-wrapper img {
-        max-width: 100%
+        max-width: 100%;
       }
     </style>
 
     <div class="pd-program">
       <nav>
-        <a href="#" on-click="clickNav" data-nr="1">Straat 1</a>
-        <a href="#" on-click="clickNav" data-nr="2">Straat 2</a>
-        <a href="#" on-click="clickNav" data-nr="3">Straat 3</a>
+        <a href="#" on-click="clickNav" data-nr="1">Prinsestraat</a> -
+        <a href="#" on-click="clickNav" data-nr="2">Wagenstraat</a> -
+        <a href="#" on-click="clickNav" data-nr="3">Stationsweg</a>
       </nav>
 
       <div class="pd-street-wrapper" id="street1">
@@ -81,9 +82,18 @@
             nr: '1',
             title: 'Solar Skelter',
             details: 'Le details',
+            image: 'http://1.bp.blogspot.com/-NRcB9BqOzkE/VTqtibRNoCI/AAAAAAAAC5w/XmFEt7oj1RM/s1600/lentepoets%2B019.JPG',
+            url: 'http://www.solarskelter.nl',
+            urltext: 'www.solarskelter.nl'
+          },
+          {
+            nr: '2',
+            title: 'Solar Skelter',
+            details: 'Le details',
             image: 'Le details',
-            url: 'Le details'
-          }
+            url: 'www.solarskelter.nl'
+          },
+
         ];
         this.street2 = [
           {
