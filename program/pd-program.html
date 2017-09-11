@@ -86,6 +86,14 @@
         <a href="#" on-click="clickNav" data-nr="3">Stationsweg</a>
       </nav>
 
+      <div class="pd-street-wrapper" id="fullroute">
+
+        <template is="dom-repeat" items="{{fullroute}}">
+          <pd-program-item item={{item}} />
+        </template>
+
+      </div>
+
       <div class="pd-street-wrapper" id="street1">
 
         <img src="http://parkingdaydenhaag.nl/wp-content/uploads/2017/09/plattegrond1.jpg" alt="Straat 1" />
@@ -126,6 +134,45 @@
 
       constructor() {
         super();
+
+        this.fullroute = [
+          {
+            nr: 'OV',
+            title: 'Gratis OV tijdens Park[ing] Day!',
+            details: 'Vandaag kunt u van en naar de verschillende locaties fietsen op de verschillende voertuigen ter beschikking gesteld door Solar Skelter! Fietst u een stukje mee? Graag wel meetrappen…',
+            image: 'http://parkingdaydenhaag.nl/wp-content/uploads/2017/09/solarskelter.jpg',
+            url: 'http://www.solarskelter.nl',
+            urltext: 'www.solarskelter.nl'
+          },
+          {
+            title: 'De Krĳtman',
+            details: 'De Krijtman inspireert door de in de vroege ochtend de route met stoepkrijtteksten te versieren. Het is zijn bedoeling voorbij gangers even uit hun dagelijkse bezigheden te trekken. Krijt je ook mee?',
+            image: 'http://parkingdaydenhaag.nl/wp-content/uploads/2017/09/17016035_433159210409267_1860172550655501261_o.jpg',
+            url: 'http://www.facebook.com/dekrijtman',
+            urltext: 'facebook.com/dekrijtman'
+          },
+          {
+            title: 'Louis Portal and Friends',
+            details: '12.00 - 15.00 -- Louis Portal is a musician, a thinker and a seeker. On Park[ing] Day 2017 Louis and his friends will be walking along the routes.',
+            image: '',
+            url: 'http://www.facebook.com/louis.r.portal',
+            urltext: 'facebook.com/louis.r.portal'
+          },
+                    {
+            title: 'Skavenhage',
+            details: '17.00 - 19.00 -- Een negenkoppige skaband uit de hofstad met een voorliefde voor instrumentale ska. Om 5 uur schallen zij vanaf de kop van het Huijgensparks richting Hollands Spoor en de Bijenkorf.',
+            image: '',
+            url: 'http://www.facebook.com/skavenhage',
+            urltext: 'facebook.com/Skavenhage'
+          },
+                    {
+            title: 'Circo sollievo',
+            details: '17.00 - 19.00 -- Vier muziekvrienden in een vrolijk circusorkestje. Op viool, flugelhoorn, accordeon en tuba spelen zij lopend vrolijke muziek. Ze beginnen bij Hollands Spoor en eindigen rond 19.00 uur op de Prinsestraat.',
+            image: '',
+            url: 'http://www.facebook.com/CircoSollievo',
+            urltext: 'facebook.com/CircoSollievo'
+          },
+        ];
 
         this.street1 = [
           {
