@@ -17,6 +17,11 @@
       .pd-program {
 
       }
+      @media (min-width: 480px ) {
+        .pd-program.fixed-nav {
+          padding-top: 300px;
+        }
+      }
       nav {
         font-size: 20px;
         text-align: center;
@@ -321,17 +326,26 @@
             return;
           }
 
-          if ( $('html, body').scrollTop() > 150 ) {
+          var triggerY = 170;
+          if ( $('body').hasClass('admin-bar') ) triggerY = 202;
+          if ( $('html, body').scrollTop() > triggerY ) {
+            self.shadowRoot.querySelectorAll('.pd-program').forEach(item => {
+              item.classList.add('fixed-nav');
+            });
             self.shadowRoot.querySelectorAll('.pdnav').forEach(item => {
               item.classList.add('small');
               item.classList.add('fixed');
             });
           }
-          else
+          else {
+            self.shadowRoot.querySelectorAll('.pd-program').forEach(item => {
+              item.classList.remove('fixed-nav');
+            });
             self.shadowRoot.querySelectorAll('.pdnav').forEach(item => {
               item.classList.remove('small');
               item.classList.remove('fixed');
             });
+          }
 
         });
 
