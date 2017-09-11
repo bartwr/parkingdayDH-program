@@ -17,7 +17,6 @@
       }
       .pd-program-item {
         transition: background 0s;
-        cursor: pointer;
         border-bottom: 1px solid #05d57d;
       }
       .pd-program-item:hover,
@@ -30,6 +29,7 @@
       }
       .pd-program-item header {
         display: flex;
+        cursor: pointer;
         padding: 10px 0;
         justify-content: space-between;
       }
@@ -141,11 +141,18 @@
         super();
 
         this.addEventListener('tap', 'toggle');
-        Polymer.Gestures.addListener(this, 'tap', () => this.toggle());
+        Polymer.Gestures.addListener(this, 'tap', (e) => this.toggle(e));
       }
-      toggle() {
+      toggle(e) {
+        // I want to stop executing this function if the clicked item is a link.
+        // This is useless, because it does not work with Polymer atm:
+        if( $(e.target).is('a') ) {
+          return false;
+        }
+
         this.pressed = ! this.pressed;
       }
+
     }
     customElements.define(PdProgramItem.is, PdProgramItem);
   </script>
