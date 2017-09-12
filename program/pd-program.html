@@ -15,15 +15,9 @@
         box-sizing: border-box;
       }
       .pd-program {
-        padding-top: 110px;
-      }
-      @media (min-width: 480px ) {
-        .pd-program {
-          padding-top: 80px;
-        }
-        .pd-program.fixed-nav {
-          padding-top: 300px;
-        }
+        /* Because we have the top bar on the site */
+        position:relative;
+        top: 65px;/* 50px + padding */
       }
       nav {
         font-size: 20px;
@@ -35,27 +29,11 @@
         align-items: center;
         flex-direction: row;
         text-align: center;
-        height: 50px;
-        position:fixed;
+        min-height: 50px;
+        position: fixed;
+        position: sticky;
         top: 80px;
         width: 100%;
-      }
-      @media (min-width: 480px ) {
-        nav {
-          top: 0;
-          position:relative;
-          height: 300px;
-          align-items: flex-end;
-          padding-bottom:15px;
-        }
-        nav.small {
-          height: 50px;
-        }
-      }
-      nav.fixed {
-        width:100%;
-        position: fixed;
-        top: 80px;
       }
       nav a {
         display: inline-block;
@@ -81,8 +59,10 @@
 
     <div class="pd-program">
       <nav id="pdnav" class="pdnav">
-        <a href="#" on-click="clickNav" data-nr="1">Prinsestraat</a>&nbsp;-&nbsp;
-        <a href="#" on-click="clickNav" data-nr="2">Wagenstraat</a>&nbsp;-&nbsp;
+        <a href="#" on-click="clickNav" data-nr="1">Prinsestraat</a>
+        <span> - </span>
+        <a href="#" on-click="clickNav" data-nr="2">Wagenstraat</a>
+        <span> - </span>
         <a href="#" on-click="clickNav" data-nr="3">Stationsweg</a>
       </nav>
 
@@ -371,45 +351,6 @@
             urltext: 'www.debatmobiel.nl'
           },
         ];
-
-        /**
-
-        Home navigation
-
-        On scroll: make top navigation smaller
-
-        */
-
-        self = this
-        $(window).on('scroll', function(e){
-
-          if( $(window).width() < 480 ){
-            return;
-          }
-
-          var triggerY = 170;
-          if ( $('body').hasClass('admin-bar') ) triggerY = 202;
-          if ( $('body').scrollTop() > triggerY || $('html').scrollTop() > triggerY ) {
-            self.shadowRoot.querySelectorAll('.pd-program').forEach(item => {
-              item.classList.add('fixed-nav');
-            });
-            self.shadowRoot.querySelectorAll('.pdnav').forEach(item => {
-              item.classList.add('small');
-              item.classList.add('fixed');
-            });
-          }
-          else {
-            self.shadowRoot.querySelectorAll('.pd-program').forEach(item => {
-              item.classList.remove('fixed-nav');
-            });
-            self.shadowRoot.querySelectorAll('.pdnav').forEach(item => {
-              item.classList.remove('small');
-              item.classList.remove('fixed');
-            });
-          }
-
-        });
-
       }
 
       clickNav(e, detail, sender) {
