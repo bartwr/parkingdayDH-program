@@ -14,7 +14,7 @@
       * {
         box-sizing: border-box;
       }
-      .pd-program {
+      .base {
         /* Because we have the top bar on the site */
         position:relative;
         top: 65px;/* 50px + padding */
@@ -57,12 +57,12 @@
       }
     </style>
 
-    <div class="pd-program">
+    <div class="base">
       <nav id="pdnav" class="pdnav">
         <a href="#" on-click="clickNav" data-nr="1">Prinsestraat</a>
-        <span> - </span>
+        <span>&nbsp;-&nbsp;</span>
         <a href="#" on-click="clickNav" data-nr="2">Wagenstraat</a>
-        <span> - </span>
+        <span>&nbsp;-&nbsp;</span>
         <a href="#" on-click="clickNav" data-nr="3">Stationsweg</a>
       </nav>
 
@@ -364,7 +364,7 @@
           elementToScrollTo = $(this.$.street3);
 
         $('html, body').animate({ 
-          scrollTop: elementToScrollTo.offset().top - 80 - 50
+          scrollTop: elementToScrollTo.offset().top - 80 - 20
         }, 250);
       }
 

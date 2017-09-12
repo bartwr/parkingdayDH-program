@@ -9,31 +9,31 @@
     <style>
       * {
         box-sizing: border-box;
-        font-family: "GT pressura", sans-serif;
+        font-family: "GT Pressura", sans-serif;
       }
       a {
         color: #05d57d;
         text-decoration: none;
       }
-      .pd-program-item {
+      .base {
         transition: background 0s;
         border-bottom: 1px solid #05d57d;
       }
-      .pd-program-item:hover,
-      .pd-program-item:focus {
+      .base:hover,
+      .base:focus {
         background: #eee;
       }
-      :host([pressed]) .pd-program-item:hover,
-      :host([pressed]) .pd-program-item:focus {
+      :host([pressed]) .base:hover,
+      :host([pressed]) .base:focus {
         background: transparent;
       }
-      .pd-program-item header {
+      .base header {
         display: flex;
         cursor: pointer;
         padding: 10px 0;
         justify-content: space-between;
       }
-      .pd-program-item header > div {
+      .base header > div {
         margin: 0 5px;
       }
       .pd-program-item-nr {
@@ -43,7 +43,6 @@
         height: 24px;
         background-color: #fff;
         font-size:14px;
-        font-weight: bold;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -53,7 +52,7 @@
         flex: 1;
         line-height: 20px;
         font-size:18px;
-        font-weight: bold;
+        font-family: "GT Pressura", sans-serif;
         display: flex;
         align-items: center;
       }
@@ -106,7 +105,7 @@
 
     </style>
 
-    <div class="pd-program-item">
+    <div class="base">
       <header>
         <div class="pd-program-item-nr">{{item.nr}}</div>
         <div class="pd-program-item-title">{{item.title}}</div>
