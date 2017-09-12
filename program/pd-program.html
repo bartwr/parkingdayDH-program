@@ -17,7 +17,7 @@
       .base {
         /* Because we have the top bar on the site */
         position:relative;
-        top: 65px;/* 50px + padding */
+        top: 125px;/* 50px + padding */
       }
       nav {
         font-size: 20px;
@@ -31,8 +31,8 @@
         text-align: center;
         min-height: 50px;
         position: fixed;
-        position: -webkit-sticky;
-        position: sticky;
+        /*position: -webkit-sticky;*/
+        /*position: sticky;*/
         top: 80px;
         width: 100%;
       }
@@ -55,6 +55,9 @@
       .pd-street-wrapper img {
         margin-top: 20px;
         max-width:100%;
+      }
+      #fullroute {
+        margin-top: 10px;
       }
     </style>
 
@@ -135,21 +138,21 @@
           {
             title: 'Louis Portal and Friends',
             details: '12.00 - 15.00 -- Louis Portal is a musician, a thinker and a seeker. On Park[ing] Day 2017 Louis and his friends will be walking along the routes.',
-            // image: '',
+            image: 'http://pixel.switzerlandmarket.com/style/space/sq.gif',
             url: 'http://www.facebook.com/louis.r.portal',
             urltext: 'facebook.com/louis.r.portal'
           },
                     {
             title: 'Skavenhage',
             details: '17.00 - 19.00 -- Een negenkoppige skaband uit de hofstad met een voorliefde voor instrumentale ska. Om 5 uur schallen zij vanaf de kop van het Huijgensparks richting Hollands Spoor en de Bijenkorf.',
-            // image: '',
+            image: 'http://pixel.switzerlandmarket.com/style/space/sq.gif',
             url: 'http://www.facebook.com/skavenhage',
             urltext: 'facebook.com/Skavenhage'
           },
                     {
             title: 'Circo sollievo',
             details: '17.00 - 19.00 -- Vier muziekvrienden in een vrolijk circusorkestje. Op viool, flugelhoorn, accordeon en tuba spelen zij lopend vrolijke muziek. Ze beginnen bij Hollands Spoor en eindigen rond 19.00 uur op de Prinsestraat.',
-            // image: '',
+            image: 'http://pixel.switzerlandmarket.com/style/space/sq.gif',
             url: 'http://www.facebook.com/CircoSollievo',
             urltext: 'facebook.com/CircoSollievo'
           },
@@ -283,7 +286,7 @@
             nr: '16',
             title: 'Welkom op onze Spark',
             details: 'Waar heb je de meeste kans om nieuwe mensen te ontmoeten? Op straat natuurlijk! Helaas zijn onze straten daar nu niet goed voor ingericht. Dat moet toch anders kunnen? Je hoeft niet altijd te wachten tot de ander (de gemeente) iets doet, zelf kun je ook zorgen voor verandering.Een groene oase voor je deur waar je koffie drinkt en een kletspraatje maakt met de buren zonder dat je je huis hoeft op te ruimen…ideaal toch. Doe mee en geef je samen met je buren op voor het realiseren van een Spark in jouw straat.',
-            image: '',
+            // image: 'http://pixel.switzerlandmarket.com/style/space/sq.gif',
             url: 'http://www.parkingdaydenhaag.nl/sparks',
             urltext: 'www.parkingdaydenhaag.nl/sparks'
           },
@@ -291,7 +294,7 @@
             nr: '17',
             title: 'Picknick in je favoriete park met lekkers van Haagse Oogst',
             details: 'Het ombouwen van parkeerplaats tot park kost jou heel wat energie, maar levert wel die vonk op die nodig is voor de Haagse transitie. In ruil voor al die energie, kennis en inspiratie biedt de stad je een picknick aan in je eigen park. Er is meer dan genoeg om te delen met bezoekers en passanten. Veel van de ingrediënten van dit lekkers zijn met aandacht in de omgeving van Den Haag gekweekt. En met veel liefde speciaal voor alle stadsmakers van Park[ing] Day bereid. Haagse Oogst op zijn best.',
-            image: '',
+            // image: 'http://pixel.switzerlandmarket.com/style/space/sq.gif',
             url: 'http://',
             urltext: ''
           },
@@ -339,7 +342,7 @@
             nr: '23',
             title: 'Cultuur Soep',
             details: 'Proef, ontmoet en deel de culturele verscheidenheid binnen Nederland. Cultuursoep is een onverwachte culturele kennismaking op straat met soep en zijn maker. Deze combinatie werkt streeft naar een straatbeeld waarin begrip en kennis van naaste culturen word gedeeld en vergroot doormiddel van een klein beetje extra ontmoeting en smaak.',
-            // image: '',
+            image: 'http://pixel.switzerlandmarket.com/style/space/sq.gif',
             url: 'http://',
             urltext: ''
           },
@@ -365,7 +368,7 @@
           elementToScrollTo = $(this.$.street3);
 
         $('html, body').animate({ 
-          scrollTop: elementToScrollTo.offset().top - 80 - 20
+          scrollTop: elementToScrollTo.offset().top - 80 - 50
         }, 250);
       }
 
