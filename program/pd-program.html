@@ -11,13 +11,14 @@
 
     <!-- scoped CSS for this element -->
     <style>
-      * {
+      :host * {
         box-sizing: border-box;
       }
-      .base {
+      :host .base {
         /* Because we have the top bar on the site */
         position:relative;
         top: 125px;/* 50px + padding */
+        margin-bottom: 125px;
       }
       nav {
         font-size: 20px;
