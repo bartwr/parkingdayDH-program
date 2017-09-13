@@ -108,7 +108,7 @@
     <div class="base">
       <header>
         <div class="pd-program-item-nr">{{item.nr}}</div>
-        <div class="pd-program-item-title">{{item.title}}</div>
+        <div class="pd-program-item-title" on-tap="tapHandler">{{item.title}}</div>
       </header>
       <div class="pd-program-item-details">
         <div class="image-wrapper">
@@ -140,17 +140,8 @@
       }
       constructor() {
         super();
-
-        // this.addEventListener('tap', 'toggle');
-        Polymer.Gestures.addListener(this, 'tap', (e) => this.toggle(e));
       }
-      toggle(e) {
-        // I want to stop executing this function if the clicked item is a link.
-        // This is useless, because it does not work with Polymer atm:
-        if( $(e.target).is('a') ) {
-          return false;
-        }
-
+      tapHandler() {
         this.pressed = ! this.pressed;
       }
 
