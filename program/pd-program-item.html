@@ -106,9 +106,9 @@
     </style>
 
     <div class="base">
-      <header>
+      <header on-click="tapHandler">
         <div class="pd-program-item-nr">{{item.nr}}</div>
-        <div class="pd-program-item-title" on-tap="tapHandler">{{item.title}}</div>
+        <div class="pd-program-item-title">{{item.title}}</div>
       </header>
       <div class="pd-program-item-details">
         <div class="image-wrapper">
@@ -143,6 +143,18 @@
       }
       tapHandler() {
         this.pressed = ! this.pressed;
+
+        // Safari has an issue with repainting shadow root element styles when a host attribute changes.
+        // Need this workaround (toggle any inline css property on and off) until the issue gets fixed.
+        // Issue is fixed in Safari 11 Tech Preview version.
+        // Found this solution here: https://github.com/Polymer/polymer/issues/4695#issuecomment-309358103
+
+        // if (this._isSafari && this.root) {
+        this.root.querySelectorAll('*').forEach(function(el) {
+          el.style['-webkit-backface-visibility'] = 'visible';
+          el.style['-webkit-backface-visibility'] = '';
+        });
+        // }
       }
 
     }
